@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Test matematică - Derivate</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    .intrebare { margin-bottom: 15px; }
+    .rezultat { font-weight: bold; color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>Test: Derivate simple</h2>
+
+  <div class="intrebare">
+    <p>1. Derivata funcției f(x) = x² este:</p>
+    <input type="text" id="q1" />
+  </div>
+
+  <div class="intrebare">
+    <p>2. Derivata lui sin(x) este:</p>
+    <select id="q2">
+      <option value="">--Alege un răspuns--</option>
+      <option value="cos">cos(x)</option>
+      <option value="-cos">-cos(x)</option>
+      <option value="sin">sin(x)</option>
+    </select>
+  </div>
+
+  <div class="intrebare">
+    <p>3. Derivata funcției f(x) = ln(x) este:</p>
+    <input type="text" id="q3" />
+  </div>
+
+  <button onclick="corecteaza()">Verifică răspunsurile</button>
+
+  <p class="rezultat" id="scor"></p>
+
+  <script>
+    function corecteaza() {
+      let puncte = 0;
+      
+      const r1 = document.getElementById("q1").value.trim().toLowerCase();
+      if (r1 === "2x") puncte++;
+
+      const r2 = document.getElementById("q2").value;
+      if (r2 === "cos") puncte++;
+
+      const r3 = document.getElementById("q3").value.trim().toLowerCase();
+      if (r3 === "1/x" || r3 === "1x⁻¹") puncte++;
+
+      document.getElementById("scor").innerText = `Ai obținut ${puncte} din 3 puncte.`;
+    }
+  </script>
+
+</body>
+</html>
